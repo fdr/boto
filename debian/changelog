@@ -1,3 +1,10 @@
+boto (2.0b4-1~heroku-1ubuntu1ppa2) lucid; urgency=low
+
+  [ Louis R. Marascio ]
+  * Specify a reasonable socket timeout for httplib
+
+ -- Daniel Farina <drfarina@acm.org>  Thu, 02 Jun 2011 04:04:19 -0700
+
 boto (2.0b4~heroku-1ubuntu1ppa1) lucid; urgency=low
 
   * source package automatically created by stdeb 0.6.0
