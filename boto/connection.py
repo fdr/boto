@@ -738,9 +738,11 @@ class AWSAuthConnection(object):
                 connection = self.new_http_connection(request.host, self.is_secure)
             time.sleep(2 ** i)
             i += 1
-        # If we made it here, it's because we have exhausted our retries and stil haven't
-        # succeeded.  So, if we have a response object, use it to raise an exception.
-        # Otherwise, raise the exception that must have already happened.
+
+        # If we made it here, it's because we have exhausted our retries and
+        # stil haven't succeeded.  So, if we have a response object, use it to
+        # raise an exception.  Otherwise, raise the exception that must have
+        # already happened.
         if response:
             raise BotoServerError(response.status, response.reason, body)
         elif e:
