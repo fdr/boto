@@ -566,6 +566,8 @@ class Key(object):
                                                    query_args=query_args)
         self.handle_version_headers(resp, force=True)
 
+        return resp
+
     def compute_md5(self, fp):
         """
         :type fp: file
@@ -670,7 +672,7 @@ class Key(object):
                 k = self.bucket.lookup(self.name)
                 if k:
                     return
-            self.send_file(fp, headers, cb, num_cb, query_args,
+            return self.send_file(fp, headers, cb, num_cb, query_args,
                                             chunked_transfer=True)
 
     def set_contents_from_file(self, fp, headers=None, replace=True,
@@ -762,7 +764,7 @@ class Key(object):
                 k = self.bucket.lookup(self.name)
                 if k:
                     return
-            self.send_file(fp, headers, cb, num_cb, query_args)
+            return self.send_file(fp, headers, cb, num_cb, query_args)
 
     def set_contents_from_filename(self, filename, headers=None, replace=True,
                                    cb=None, num_cb=10, policy=None, md5=None,
